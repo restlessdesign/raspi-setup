@@ -1,0 +1,5 @@
+alias ..="cd .."
+alias ...="cd ../../"
+alias ....="cd ../../../"
+alias ll="ls -al"
+alias llt="ls -al -G | column -t"
