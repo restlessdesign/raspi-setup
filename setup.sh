@@ -6,33 +6,10 @@ if [ "$(whoami)" != "root" ]; then
     exit 1
 fi
 
-# Setup network
-read -p "Setup wireless network? [Y/n]\n" setup_wireless
-setup_wireless=${setup_wireless,,} # convert response to lowercase
-if [[ $setup_wireless =~ ^(yes|y)$ ]]; then
-    read -p "Network (SSID): " nw_ssid
-    read -sp "Password: " nw_pass
-
-    echo "
-        network={
-            ssid=\"$nw_ssid\"
-            psk=\"$nw_pass\"
-        }
-    " >> /etc/wpa_supplicant/wpa_supplicant.conf
-fi
-
-# Update keyboard
-sed -i "s/XKBLAYOUT=\"gb\"/XKBLAYOUT=\"us\"/" /etc/default/keyboard
-
-# Update timezone
-cp /usr/share/zoneinfo/America/New_York /etc/localtime
-
-# Copy aliases if safe to do so
-if [ ! -f ~/.bash_aliases]; then
-    cp .bash_aliases ~/.bash_aliases
-else
-    echo "~/.bash_aliases already exists. Skipping."
-fi
+./scripts/user.sh
+./scripts/locale.sh
+./scripts/network.sh
+./scripts/dotfiles.sh
 
 # Move setup script to temporary directory (for easy access after rebooting)
 mkdir ~/tmp && cp setup.sh ~/tmp/setup.sh
