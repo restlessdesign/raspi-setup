@@ -14,4 +14,5 @@ apt-get update
 apt-get -y dist-upgrade
 
 # Install common packages
+apt-get -y install htop
 apt-get -y install vim
