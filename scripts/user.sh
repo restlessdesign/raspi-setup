@@ -1,9 +1,15 @@
 #!/bin/bash
 
-# Create new user
+# Ensure program is run via sudo
+if [ "$(whoami)" != "root" ]; then
+    echo "This script must be run as the root user"
+    exit 1
+fi
+
 read -p "Create new user? [Y/n]\n" create_user
 create_user=${create_user,,}
 if [[ $create_user =~ ^(yes|y)$ ]]; then
+    # Create new user
     echo "Enter desired login details below:\n"
 
     read -p "Username: " user
@@ -12,6 +18,8 @@ if [[ $create_user =~ ^(yes|y)$ ]]; then
     useradd -m -G $(groups | cut -f 1 -d ' ' --complement | sed "s/ /,/g") ${user}
     passwd ${user}
     echo "User ${user} successfully created!\n"
+    echo ""
+    echo "You must manually add the user “${user}” to the sudoers file."
 
     # Delete default user
     read -p "Delete default user, “pi”? (this is strongly recommended!) [Y/n]\n" remove_default_user
