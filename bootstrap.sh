@@ -6,9 +6,8 @@ if [ "$(whoami)" != "root" ]; then
     exit 1
 fi
 
-./scripts/dotfiles.sh
-./scripts/locale.sh
-./scripts/network.sh
+./scripts/_locale.sh
+./scripts/_network.sh
 
 # Move the rest of our scripts somewhere local
 mkdir ~/tmp && cp scripts/ ~/tmp/scripts
