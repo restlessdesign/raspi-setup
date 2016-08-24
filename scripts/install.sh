@@ -10,7 +10,5 @@ fi
 apt-get -y install fail2ban
 apt-get -y install htop
 apt-get -y install logwatch
-# @todo
-# echo "/usr/sbin/logwatch --output mail --mailto kevinsweeney@gmail.com --detail high" >> /etc/cron.daily/00logwatch
 apt-get -y install vim
 apt-get -y install xclip

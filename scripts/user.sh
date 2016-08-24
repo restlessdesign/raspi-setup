@@ -20,6 +20,12 @@ if [[ $create_user =~ ^(yes|y)$ ]]; then
     echo "User ${user} successfully created!\n"
     echo ""
     echo "You must manually add the user “${user}” to the sudoers file."
+    echo "${user}    ALL=(ALL) ALL" | xcopy
+    echo "The necessary text has been copied to your clipboard."
+    echo "`visudo` will now execute. Paste the text below line which looks like:"
+    echo "  root    ALL=(ALL) ALL"
+    echo "When you are done, exit the editor to continue running this script."
+    echo ""
 
     # Delete default user
     read -p "Delete default user, “pi”? (this is strongly recommended!) [Y/n]\n" remove_default_user
@@ -29,8 +35,3 @@ if [[ $create_user =~ ^(yes|y)$ ]]; then
         echo "Default user deleted."
     fi
 fi
-
-# @todo
-# Set up MFA
-# https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-two-factor-authentication
-# https://www.digitalocean.com/community/tutorials/how-to-set-up-multi-factor-authentication-for-ssh-on-ubuntu-14-04

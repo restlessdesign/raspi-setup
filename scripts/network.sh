@@ -37,4 +37,5 @@ if [[ $setup_hostname =~ ^(yes|y)$ ]]; then
 fi
 
 # @todo
-# Set up static IP address
+# Set up static IP address?
+# Hostnames seem to work just fine though…
