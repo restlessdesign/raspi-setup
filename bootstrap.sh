@@ -6,13 +6,12 @@ if [ "$(whoami)" != "root" ]; then
     exit 1
 fi
 
-./scripts/user.sh
+./scripts/dotfiles.sh
 ./scripts/locale.sh
 ./scripts/network.sh
-./scripts/dotfiles.sh
 
-# Move setup script to temporary directory (for easy access after rebooting)
-mkdir ~/tmp && cp setup.sh ~/tmp/setup.sh
+# Move the rest of our scripts somewhere local
+mkdir ~/tmp && cp scripts/ ~/tmp/scripts
 
 # Reboot for network and keyboard changes to take effect
 reboot
