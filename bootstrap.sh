@@ -16,7 +16,6 @@ echo "Locale and network settings updated!"
 echo "The system will now reboot. Once it does, continue installation by running ~/tmp/scripts/setup.sh"
 echo ""
 
-read -p "Press [Enter] to reboot machine"
-
 # Reboot for network and keyboard changes to take effect
+read -p "Press [Enter] to reboot machine"
 reboot
