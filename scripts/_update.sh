@@ -6,9 +6,19 @@ if [ "$(whoami)" != "root" ]; then
     exit 1
 fi
 
+echo ""
+echo "#============================="
+echo "# SYSTEM UPDATE"
+echo "#============================="
+echo ""
+
+echo "Updating Raspberry Pi firmware and packages"
+
 # Update firmware
 rpi-update
 
 # Update packages
 apt-get update
 apt-get -y dist-upgrade
+
+echo "System update complete!"

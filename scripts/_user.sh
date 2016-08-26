@@ -6,6 +6,12 @@ if [ "$(whoami)" != "root" ]; then
     exit 1
 fi
 
+echo ""
+echo "#============================="
+echo "# USER SETUP"
+echo "#============================="
+echo ""
+
 read -p "Create new user? [Y/n] " create_user
 create_user=${create_user,,}
 if [[ $create_user =~ ^(yes|y)$ ]]; then
@@ -45,3 +51,5 @@ if [[ $create_user =~ ^(yes|y)$ ]]; then
         echo "Default user deleted."
     fi
 fi
+
+echo "User setup complete!"
