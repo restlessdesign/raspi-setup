@@ -6,6 +6,13 @@ if [ "$(whoami)" != "root" ]; then
     exit 1
 fi
 
+echo ""
+echo "#============================="
+echo "# LOCALE SETUP"
+echo "#============================="
+echo ""
+
 echo "raspi-config is the safest way to set your locale, keyboard, and timezone."
 read -p " Press [Enter] to continue…"
 
+echo "Locale setup complete!"

@@ -6,8 +6,14 @@ if [ "$(whoami)" != "root" ]; then
     exit 1
 fi
 
+echo ""
+echo "#============================="
+echo "# SECURITY SETUP"
+echo "#============================="
+echo ""
+
 # Create new user
-echo "Where should daily logwatch emails be sent?\n"
+echo "Where should daily logwatch emails be sent?"
 read -p "Email: " email
 echo "/usr/sbin/logwatch --output mail --mailto ${email} --detail high" >> /etc/cron.daily/00logwatch
 
@@ -15,3 +21,5 @@ echo "/usr/sbin/logwatch --output mail --mailto ${email} --detail high" >> /etc/
 # Set up MFA
 # https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-two-factor-authentication
 # https://www.digitalocean.com/community/tutorials/how-to-set-up-multi-factor-authentication-for-ssh-on-ubuntu-14-04
+
+echo "Security setup complete!"

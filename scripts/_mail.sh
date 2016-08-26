@@ -6,6 +6,19 @@ if [ "$(whoami)" != "root" ]; then
     exit 1
 fi
 
+echo ""
+echo "#============================="
+echo "# MAIL SERVER SETUP"
+echo "#============================="
+echo ""
+
+echo "You will now be asked for your Gmail login. Remember:"
+echo "  1. Use a Gmail account *other* than your personal account!"
+echo "  2. Enable less secure apps (https://www.google.com/settings/security/lesssecureapps)"
+echo ""
+
+read -p "Press [Enter] to continue…"
+
 read -p "Gmail Address: " gmail_address
 read -s -p "Gmail Password: " gmail_password
 
@@ -14,7 +27,6 @@ sed -i "s/root=postmaster/root=${gmail_address}/" /etc/ssmtp/ssmtp.conf
 sed -i "s/mailhub=mail/mailhub=smtp.gmail.com:587/" /etc/ssmtp/ssmtp.conf
 sed -i "s/#rewriteDomain=/rewriteDomain=gmail.com/" /etc/ssmtp/ssmtp.conf
 sed -i "s/#FromLineOverride=YES/FromLineOverride=YES/" /etc/ssmtp/ssmtp.conf
-
 echo "
 AuthUser=${gmail_address}
 AuthPass=${gmail_password}
@@ -25,6 +37,5 @@ UseSTARTTLS=YES
 
 echo "Done."
 echo ""
-echo "Mail setup complete! Remember to enable less secure apps (https://www.google.com/settings/security/lesssecureapps)"
 
-read -p "Press [Enter] to continue…"
+echo "Mail setup complete!"

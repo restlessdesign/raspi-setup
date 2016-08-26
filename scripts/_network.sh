@@ -6,6 +6,12 @@ if [ "$(whoami)" != "root" ]; then
     exit 1
 fi
 
+echo ""
+echo "#============================="
+echo "# NETWORK SETUP"
+echo "#============================="
+echo ""
+
 # Setup network
 read -p "Setup wireless network? [Y/n]\n" setup_wireless
 setup_wireless=${setup_wireless,,} # convert response to lowercase
@@ -20,7 +26,8 @@ if [[ $setup_wireless =~ ^(yes|y)$ ]]; then
         }
     " >> /etc/wpa_supplicant/wpa_supplicant.conf
 
-    echo "Using ${$nw_ssid} for WIFI"
+    echo "Using ${$nw_ssid} for WiFi"
+    echo ""
 fi
 
 # Change hostname (a network full of “raspberrypi”s isn’t very helpful!)
@@ -34,8 +41,11 @@ if [[ $setup_hostname =~ ^(yes|y)$ ]]; then
 
     sudo /etc/init.d/hostname.sh
     echo "Hostname changed to “${hn}”"
+    echo ""
 fi
 
 # @todo
 # Set up static IP address?
 # Hostnames seem to work just fine though…
+
+echo "Network setup complete!"
