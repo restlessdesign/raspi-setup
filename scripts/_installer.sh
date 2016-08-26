@@ -10,4 +10,5 @@ fi
 apt-get -y install fail2ban
 apt-get -y install htop
 apt-get -y install logwatch
+apt-get -y install ssmtp
 apt-get -y install vim
