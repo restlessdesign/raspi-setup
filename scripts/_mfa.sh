@@ -12,9 +12,19 @@ echo "# MULTI-FACTOR AUTH SETUP"
 echo "#============================="
 echo ""
 
-# @todo
-# Set up MFA
-# https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-two-factor-authentication
-# https://www.digitalocean.com/community/tutorials/how-to-set-up-multi-factor-authentication-for-ssh-on-ubuntu-14-04
+# Run through Google Authenticator setup
+google-authenticator
+
+# Add Google Authenticator to SSH config
+echo "
+
+# Google MFA
+auth required pam_google_authenticator.so
+" >> /etc/pam.d/sshd
+
+sed -i "s/ChallengeResponseAuthentication no/ChallengeResponseAuthentication yes/g" /etc/ssh/sshd_config
+
+# Restart SSH service
+/etc/init.d/ssh restart
 
 echo "Multi-factor authentication setup complete!"
