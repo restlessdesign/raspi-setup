@@ -40,8 +40,7 @@ if [[ $create_user =~ ^(yes|y)$ ]]; then
 
     # Copy dotfiles
     echo "Copying .bash_aliases file…"
-    cp /home/pi/.bash_aliases ~/.bash_aliases
-    source ~/.bash_aliases
+    cp /home/pi/.bash_aliases /home/${user}/.bash_aliases
 
     # Delete default user
     read -p "Delete default user, “pi”? (this is strongly recommended!) [Y/n] " remove_default_user
