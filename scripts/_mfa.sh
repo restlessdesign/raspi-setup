@@ -16,11 +16,10 @@ echo ""
 google-authenticator
 
 # Add Google Authenticator to SSH config
-echo "
-
+cat >> /etc/pam.d/sshd <<EOF
 # Google MFA
 auth required pam_google_authenticator.so
-" >> /etc/pam.d/sshd
+EOF
 
 sed -i "s/ChallengeResponseAuthentication no/ChallengeResponseAuthentication yes/g" /etc/ssh/sshd_config
 

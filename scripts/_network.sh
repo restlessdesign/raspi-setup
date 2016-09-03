@@ -19,12 +19,12 @@ if [[ $setup_wireless =~ ^(yes|y)$ ]]; then
     read -p "Network (SSID): " nw_ssid
     read -sp "Password: " nw_pass
 
-    echo "
-        network={
-            ssid=\"$nw_ssid\"
-            psk=\"$nw_pass\"
-        }
-    " >> /etc/wpa_supplicant/wpa_supplicant.conf
+    cat >> /etc/wpa_supplicant/wpa_supplicant.conf <<EOF
+network={
+    ssid=\"${nw_ssid}\"
+    psk=\"${$nw_pass}\"
+}
+EOF
 
     echo "Using ${$nw_ssid} for WiFi"
     echo ""
