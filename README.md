@@ -1,3 +1,6 @@
+![MIT License](https://img.shields.io/npm/l/git-js.svg)
+[![Twitter](https://img.shields.io/badge/Twitter-@restlessdesign-gray.svg?style=flat)](https://twitter.com/restlessdesign)
+
 # raspi-setup
 
 A small set of scripts to set up Raspberry Pi devices to a common configuration
