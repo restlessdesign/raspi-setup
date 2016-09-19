@@ -28,12 +28,15 @@ sed -i "s/mailhub=mail/mailhub=smtp.gmail.com:587/" /etc/ssmtp/ssmtp.conf
 sed -i "s/#rewriteDomain=/rewriteDomain=gmail.com/" /etc/ssmtp/ssmtp.conf
 sed -i "s/#FromLineOverride=YES/FromLineOverride=YES/" /etc/ssmtp/ssmtp.conf
 
-cat >> /etc/ssmtp/ssmtp.conf <<EOF
+cat > /etc/ssmtp/ssmtp.conf <<EOF
+root=mailservice.pi@gmail.com
+mailhub=smtp.gmail.com:587
+
+FromLineOverride=YES
 AuthUser=${gmail_address}
 AuthPass=${gmail_password}
-UseTLS=YES
 UseSTARTTLS=YES
-  hostname=smtp.gmail.com:587
+UseTLS=YES
 EOF
 
 echo "Done."
