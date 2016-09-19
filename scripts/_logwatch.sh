@@ -12,16 +12,10 @@ echo "# LOGWATCH SETUP"
 echo "#============================="
 echo ""
 
-# @todo
-# Prompt user for email frequency (daily or weekly)
-
 echo "Where should daily logwatch emails be sent?"
 read -p "Email: " email
 cat >> /etc/cron.daily/00logwatch <<EOF
 /usr/sbin/logwatch --output mail --mailto ${email} --detail high
 EOF
-
-# @todo
-# Ensure that cron is actually running and sending mails
 
 echo "Logwatch setup complete!"
