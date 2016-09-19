@@ -5,4 +5,6 @@
 ./scripts/_user.sh
 
 ./scripts/_mail.sh
-./scripts/_security.sh
+./scripts/_logwatch.sh
+./scripts/_mfa.sh
+./scripts/_firewall.sh
