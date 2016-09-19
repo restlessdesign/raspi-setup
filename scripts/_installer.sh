@@ -19,6 +19,7 @@ apt-get -y install htop
 apt-get -y install libpam-google-authenticator
 apt-get -y install logwatch
 apt-get -y install ssmtp
+apt-get -y install ufw
 apt-get -y install vim
 
 echo "Application installation complete!"
