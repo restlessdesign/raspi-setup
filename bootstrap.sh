@@ -10,7 +10,7 @@ fi
 ./scripts/_network.sh
 
 # Move the rest of our scripts somewhere local
-mkdir ~/tmp && cp scripts/ ~/tmp/scripts
+mkdir -p ~/tmp/scripts && cp scripts/* ~/tmp/scripts
 
 echo "Locale and network settings updated!"
 echo "The system will now reboot. Once it does, continue installation by running ~/tmp/scripts/setup.sh"
