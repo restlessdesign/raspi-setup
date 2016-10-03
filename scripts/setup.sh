@@ -1,10 +1,10 @@
-./scripts/_update.sh
-./scripts/_installer.sh
+./_update.sh
+./_installer.sh
 
-./scripts/_dotfiles.sh
-./scripts/_user.sh
+./_dotfiles.sh
+./_user.sh
 
-./scripts/_mail.sh
-./scripts/_logwatch.sh
-./scripts/_mfa.sh
-./scripts/_firewall.sh
+./_mail.sh
+./_logwatch.sh
+./_mfa.sh
+./_firewall.sh
