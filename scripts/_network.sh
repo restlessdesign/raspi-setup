@@ -13,7 +13,7 @@ echo "#============================="
 echo ""
 
 # Setup network
-read -p "Setup wireless network? [Y/n]\n" setup_wireless
+read -p "Setup wireless network? [Y/n] " setup_wireless
 setup_wireless=${setup_wireless,,} # convert response to lowercase
 if [[ $setup_wireless =~ ^(yes|y)$ ]]; then
     read -p "Network (SSID): " nw_ssid
@@ -31,7 +31,7 @@ EOF
 fi
 
 # Change hostname (a network full of “raspberrypi”s isn’t very helpful!)
-read -p "Setup hostname? [Y/n]\n" setup_hostname
+read -p "Setup hostname? [Y/n] " setup_hostname
 setup_hostname=${setup_hostname,,}
 if [[ $setup_hostname =~ ^(yes|y)$ ]]; then
     read -p "Hostname: " hn
