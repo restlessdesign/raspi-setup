@@ -12,6 +12,9 @@ echo "# MULTI-FACTOR AUTH SETUP"
 echo "#============================="
 echo ""
 
+# The next command needs to be run as the user we are setting up, so switch back
+su logname
+
 # Run through Google Authenticator setup
 google-authenticator
 
