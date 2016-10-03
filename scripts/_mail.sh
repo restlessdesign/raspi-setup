@@ -19,7 +19,7 @@ echo ""
 
 read -p "Press [Enter] to continue…"
 
-read -p "Gmail Address: " gmail_address
+read -p "Gmail Address (including @gmail.com): " gmail_address
 read -s -p "Gmail Password: " gmail_password
 
 echo "Updating /etc/ssmtp/ssmtp.conf with Gmail login…"
