@@ -15,4 +15,6 @@ echo ""
 echo "raspi-config is the safest way to set your locale, keyboard, and timezone."
 read -p " Press [Enter] to continue…"
 
+raspi-config
+
 echo "Locale setup complete!"
