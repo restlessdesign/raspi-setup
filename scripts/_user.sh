@@ -28,7 +28,7 @@ if [[ $create_user =~ ^(yes|y)$ ]]; then
     echo ""
     read -p "Once you have copied the line above, press [Enter] to continue…"
 
-    echo "visudo will now execute. Paste the text below line which looks like:"
+    echo "visudo will now execute. Paste the text below the line which looks like:"
     echo ""
     echo "root    ALL=(ALL) ALL"
     echo ""
