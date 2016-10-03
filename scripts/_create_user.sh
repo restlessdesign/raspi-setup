@@ -46,8 +46,8 @@ if [[ $create_user =~ ^(yes|y)$ ]]; then
     read -p "Delete default user, “pi”? (this is strongly recommended!) [Y/n] " remove_default_user
     remove_default_user=${remove_default_user,,}
     if [[ $remove_default_user =~ ^(yes|y)$ ]]; then
-        deluser --remove-all-files pi
-        echo "Default user deleted."
+        export DELETE_DEFAULT_USER=true
+        echo "Default user deleted after setup completes."
     fi
 fi
 
